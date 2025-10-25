@@ -1,0 +1,5 @@
+service:
+  name: pls
+  identifier: pls
+  orgIdentifier: default
+  projectIdentifier: default_project
