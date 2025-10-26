@@ -1,0 +1,40 @@
+{
+  "family": "pls-task",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "512",
+  "memory": "1024",
+  "executionRoleArn": "arn:aws:iam::533267447462:role/ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::533267447462:role/ecsTaskExecutionRole",
+  "containerDefinitions": [
+    {
+      "name": "pls-container",
+      "image": "533267447462.dkr.ecr.us-east-1.amazonaws.com/pls:latest",
+      "portMappings": [
+        {
+          "containerPort": 8080,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,
+      "environment": [
+        {
+          "name": "SPRING_PROFILES_ACTIVE",
+          "value": "prod"
+        },
+        {
+          "name": "AWS_REGION",
+          "value": "<REGION>"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/pls",
+          "awslogs-region": "<REGION>",
+          "awslogs-stream-prefix": "ecs"
+        }
+      }
+    }
+  ]
+}
