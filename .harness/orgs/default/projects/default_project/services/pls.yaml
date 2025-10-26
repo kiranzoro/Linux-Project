@@ -4,5 +4,41 @@ service:
   orgIdentifier: default
   projectIdentifier: default_project
   serviceDefinition:
-    spec: {}
     type: ECS
+    spec:
+      taskDefinition:
+        store:
+          type: Git
+          spec:
+            connectorRef: account.GITHUB_CONNECTOR
+            gitFetchType: Branch
+            branch: main
+            paths:
+              - ecs/task-definition.json
+      serviceDefinition:
+        store:
+          type: Git
+          spec:
+            connectorRef: account.GITHUB_CONNECTOR
+            gitFetchType: Branch
+            branch: main
+            paths:
+              - ecs/service-definition.json
+      scalableTarget:
+        store:
+          type: Git
+          spec:
+            connectorRef: account.GITHUB_CONNECTOR
+            gitFetchType: Branch
+            branch: main
+            paths:
+              - ecs/scalable-target.json
+      scalingPolicy:
+        store:
+          type: Git
+          spec:
+            connectorRef: account.GITHUB_CONNECTOR
+            gitFetchType: Branch
+            branch: main
+            paths:
+              - ecs/scaling-policy.json
