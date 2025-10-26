@@ -10,7 +10,7 @@ service:
         store:
           type: Git
           spec:
-            connectorRef: account.GITHUB_CONNECTOR
+            connectorRef: EmvaURawS1q6Gld3sd3OLg
             gitFetchType: Branch
             branch: main
             paths:
@@ -19,7 +19,7 @@ service:
         store:
           type: Git
           spec:
-            connectorRef: account.GITHUB_CONNECTOR
+            connectorRef: EmvaURawS1q6Gld3sd3OLg
             gitFetchType: Branch
             branch: main
             paths:
@@ -28,7 +28,7 @@ service:
         store:
           type: Git
           spec:
-            connectorRef: account.GITHUB_CONNECTOR
+            connectorRef: EmvaURawS1q6Gld3sd3OLg
             gitFetchType: Branch
             branch: main
             paths:
@@ -37,7 +37,7 @@ service:
         store:
           type: Git
           spec:
-            connectorRef: account.GITHUB_CONNECTOR
+            connectorRef: EmvaURawS1q6Gld3sd3OLg
             gitFetchType: Branch
             branch: main
             paths:
