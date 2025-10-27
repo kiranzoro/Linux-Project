@@ -42,3 +42,30 @@ service:
             branch: main
             paths:
               - ecs/scaling-policy.json
+      manifests:
+        - manifest:
+            identifier: taskdef
+            type: EcsTaskDefinition
+            spec:
+              store:
+                type: Github
+                spec:
+                  connectorRef: kiran
+                  gitFetchType: Branch
+                  paths:
+                    - .harness/orgs/default/projects/default_project/services/Taskdef.yaml
+                  repoName: Linux-Project
+                  branch: main
+        - manifest:
+            identifier: servicedef
+            type: EcsServiceDefinition
+            spec:
+              store:
+                type: Github
+                spec:
+                  connectorRef: kiran
+                  gitFetchType: Branch
+                  paths:
+                    - .harness/orgs/default/projects/default_project/services/servicedef.yaml
+                  repoName: Linux-Project
+                  branch: main
