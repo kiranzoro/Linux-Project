@@ -3,7 +3,12 @@ pipeline:
   identifier: PLS
   projectIdentifier: default_project
   orgIdentifier: default
-  tags: {}
+  tags:
+    Project: <+project.name>
+    Environment: <+env.name>
+    Pipeline: <+pipeline.name>
+    ManagedBy: Harness
+    Owner: Kiran
   stages:
     - stage:
         name: DEPLOY
@@ -52,8 +57,3 @@ pipeline:
                 - AllErrors
               action:
                 type: StageRollback
-  Project: <+project.name>
-  Environment: <+env.name>
-  Pipeline: <+pipeline.name>
-  ManagedBy: Harness
-  Owner: Kiran
