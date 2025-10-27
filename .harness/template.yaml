@@ -15,7 +15,7 @@ pipeline:
           service:
             serviceRef: pls
           environment:
-            environmentRef: dev
+            environmentRef: Dev
             deployToAll: false
             infrastructureDefinitions:
               - identifier: ecs_infra
