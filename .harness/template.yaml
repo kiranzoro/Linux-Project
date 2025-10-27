@@ -50,6 +50,17 @@ pipeline:
                               branch: main
                               paths:
                                 - .harness/infra.yaml
+                      tags:
+                        spec:
+                          content: |-
+                            {
+                              "Project": "<+project.name>",
+                              "Environment": "<+env.name>",
+                              "Pipeline": "<+pipeline.name>",
+                              "ManagedBy": "Harness",
+                              "Owner": "Kiran"
+                            }
+                        type: Inline
             rollbackSteps: []
         failureStrategies:
           - onFailure:
