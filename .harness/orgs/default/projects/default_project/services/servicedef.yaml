@@ -10,7 +10,7 @@
   "networkConfiguration": {
     "awsvpcConfiguration": {
       "subnets": ["subnet-021fc4645bba9a318","subnet-01915033cdb5a356d","subnet-0ae7d8e2aa630b178","subnet-0cca90779cc29c465","subnet-0917fb7781153e8d1","subnet-0c955cd00e09488d4"],  // Replace with your VPC subnets
-      "securityGroups": ["sg-xxxxxxxx"],                  // Replace with your security group
+      "securityGroups": ["sg-0365dc66cd01176ad"],                  // Replace with your security group
       "assignPublicIp": "ENABLED"
     }
   },
