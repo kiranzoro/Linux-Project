@@ -12,45 +12,43 @@ pipeline:
         type: Deployment
         spec:
           deploymentType: ECS
+          service:
+            serviceRef: pls
+          environment:
+            environmentRef: dev
+            deployToAll: false
+            infrastructureDefinitions:
+              - identifier: ecs_infra
           execution:
             steps:
               - step:
                   type: CreateStack
-                  name: CreateStack_1
+                  name: Create CloudFormation Stack
                   identifier: CreateStack_1
+                  timeout: 10m
                   spec:
                     provisionerIdentifier: pls_provisioner
                     configuration:
                       stackName: pls-stack
                       connectorRef: AWS
                       region: us-east-1
+                      roleArn: ""
                       templateFile:
                         type: Remote
                         spec:
                           store:
                             type: Github
                             spec:
-                              paths:
-                                - .harness /template.yaml
                               connectorRef: kiran
                               repoName: Linux-Project
                               gitFetchType: Branch
                               branch: main
-                      roleArn: ""
-                  timeout: 10m
+                              paths:
+                                - .harness/infra.yaml
             rollbackSteps: []
-          service:
-            serviceRef: pls
-          environment:
-            environmentRef: <+input>
-            deployToAll: false
-            environmentInputs: <+input>
-            serviceOverrideInputs: <+input>
-            infrastructureDefinitions: <+input>
-        tags: {}
         failureStrategies:
           - onFailure:
               errors:
                 - AllErrors
               action:
-                type: StageRollback  this is in template .yaml
+                type: StageRollback
