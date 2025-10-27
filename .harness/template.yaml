@@ -52,7 +52,6 @@ pipeline:
                 - AllErrors
               action:
                 type: StageRollback
-      tags: null
   Project: <+project.name>
   Environment: <+env.name>
   Pipeline: <+pipeline.name>
