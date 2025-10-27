@@ -1,0 +1,56 @@
+pipeline:
+  name: PLS
+  identifier: PLS
+  projectIdentifier: default_project
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: DEPLOY
+        identifier: DEPLOY
+        description: ""
+        type: Deployment
+        spec:
+          deploymentType: ECS
+          execution:
+            steps:
+              - step:
+                  type: CreateStack
+                  name: CreateStack_1
+                  identifier: CreateStack_1
+                  spec:
+                    provisionerIdentifier: pls_provisioner
+                    configuration:
+                      stackName: pls-stack
+                      connectorRef: AWS
+                      region: us-east-1
+                      templateFile:
+                        type: Remote
+                        spec:
+                          store:
+                            type: Github
+                            spec:
+                              paths:
+                                - .harness /template.yaml
+                              connectorRef: kiran
+                              repoName: Linux-Project
+                              gitFetchType: Branch
+                              branch: main
+                      roleArn: ""
+                  timeout: 10m
+            rollbackSteps: []
+          service:
+            serviceRef: pls
+          environment:
+            environmentRef: <+input>
+            deployToAll: false
+            environmentInputs: <+input>
+            serviceOverrideInputs: <+input>
+            infrastructureDefinitions: <+input>
+        tags: {}
+        failureStrategies:
+          - onFailure:
+              errors:
+                - AllErrors
+              action:
+                type: StageRollback
