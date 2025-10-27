@@ -53,13 +53,28 @@ pipeline:
                       tags:
                         spec:
                           content: |-
-                            {
-                              "Project": "<+project.name>",
-                              "Environment": "<+env.name>",
-                              "Pipeline": "<+pipeline.name>",
-                              "ManagedBy": "Harness",
-                              "Owner": "Kiran"
-                            }
+                            [
+                                {
+                                  "key": "Project",
+                                  "value": "<+project.name>"
+                                },
+                                {
+                                  "key": "Environment",
+                                  "value": "<+env.name>"
+                                },
+                                {
+                                  "key": "Pipeline",
+                                  "value": "<+pipeline.name>"
+                                },
+                                {
+                                  "key": "ManagedBy",
+                                  "value": "Harness"
+                                },
+                                {
+                                  "key": "Owner",
+                                  "value": "Kiran"
+                                }
+                              ]
                         type: Inline
             rollbackSteps: []
         failureStrategies:
