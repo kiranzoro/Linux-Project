@@ -50,6 +50,12 @@ pipeline:
                               branch: main
                               paths:
                                 - .harness/infra.yaml
+                    tags:
+                      Project: <+project.name>
+                      Environment: <+env.name>
+                      Pipeline: <+pipeline.name>
+                      ManagedBy: Harness
+                      Owner: Kiran
             rollbackSteps: []
         failureStrategies:
           - onFailure:
