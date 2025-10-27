@@ -128,7 +128,7 @@ Resources:
   ALBSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
-      GroupDescription: Allow public HTTP/HTTPS
+      GroupDescription: Allow public HTTP/HTTPS and pls
       VpcId: !Ref VPC
       SecurityGroupIngress:
         - IpProtocol: tcp
