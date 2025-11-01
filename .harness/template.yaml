@@ -76,6 +76,20 @@ pipeline:
                                 }
                               ]
                         type: Inline
+              - step:
+                  type: EcsRollingDeploy
+                  name: EcsRollingDeploy_1
+                  identifier: EcsRollingDeploy_1
+                  spec:
+                    sameAsAlreadyRunningInstances: false
+                    forceNewDeployment: false
+                  timeout: 10m
+                  failureStrategies:
+                    - onFailure:
+                        errors:
+                          - AllErrors
+                        action:
+                          type: StageRollback
             rollbackSteps: []
         failureStrategies:
           - onFailure:
