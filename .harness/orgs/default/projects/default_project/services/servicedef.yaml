@@ -18,7 +18,7 @@ networkConfiguration:
       - sg-0365dc66cd01176ad
     assignPublicIp: ENABLED
 loadBalancers:
-  - targetGroupArn: arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/pls-tg/abc123
+  - targetGroupArn: arn:aws:elasticloadbalancing:us-east-1:533267447462:targetgroup/pls-tg/55a48fbb11108725
     containerName: pls-container
     containerPort: 8080
 schedulingStrategy: REPLICA
