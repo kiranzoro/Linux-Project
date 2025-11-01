@@ -76,6 +76,8 @@ pipeline:
                                 }
                               ]
                         type: Inline
+                    delegateSelectors:
+                      - docker-delegate
               - step:
                   type: EcsRollingDeploy
                   name: EcsRollingDeploy_1
@@ -97,3 +99,6 @@ pipeline:
                 - AllErrors
               action:
                 type: StageRollback
+        tags: {}
+        delegateSelectors:
+          - docker-delegate
