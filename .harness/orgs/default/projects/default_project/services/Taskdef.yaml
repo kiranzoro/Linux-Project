@@ -4,8 +4,8 @@
   "requiresCompatibilities": ["FARGATE"],
   "cpu": "512",
   "memory": "1024",
-  "executionRoleArn": "arn:aws:iam::533267447462:role/ecsTaskExecutionRole",
-  "taskRoleArn": "arn:aws:iam::533267447462:role/ecsTaskExecutionRole",
+  "executionRoleArn": "arn:aws:iam::533267447462:role/pls-ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::533267447462:role/pls-taskRole",
   "containerDefinitions": [
     {
       "name": "pls-container",
