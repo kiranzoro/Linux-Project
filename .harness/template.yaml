@@ -83,8 +83,6 @@ pipeline:
                   spec:
                     sameAsAlreadyRunningInstances: false
                     forceNewDeployment: false
-                    delegateSelectors:
-                      - docker-delegate
                   timeout: 10m
                   failureStrategies:
                     - onFailure:
