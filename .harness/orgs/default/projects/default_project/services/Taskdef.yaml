@@ -9,7 +9,7 @@
   "containerDefinitions": [
     {
       "name": "pls-container",
-      "image": "533267447462.dkr.ecr.us-east-1.amazonaws.com/pls:latest",
+      "image": "mcr.microsoft.com/dotnet/samples:aspnetapp",
       "portMappings": [
         {
           "containerPort": 8080,
